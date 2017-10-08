@@ -1,21 +1,8 @@
 # Metar
 
-**TODO: Add description**
+My try at the Programming Elixir: Organizing A Project Exercise 6
 
-## Installation
+This little elixir app fetches METAR data for a given ICAO code.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `metar` to your list of dependencies in `mix.exs`:
 
-```elixir
-def deps do
-  [
-    {:metar, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/metar](https://hexdocs.pm/metar).
 

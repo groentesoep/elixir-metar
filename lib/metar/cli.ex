@@ -8,6 +8,7 @@ defmodule Metar.CLI do
   def main(argv) do
     argv
     |> parse_args()
+    |> validate_length()
     |> process
   end
 
@@ -29,12 +30,29 @@ defmodule Metar.CLI do
     end
   end
 
+  def validate_length(:help), do: :help
+  def validate_length(icao) do
+    cond do
+      Enum.count(to_charlist(icao)) == 4 ->
+        icao
+      true ->
+        :wrong
+    end
+  end
+
   def process(:help) do
     IO.puts """
     usage: metar <ICAO>
 
     ICAO is a four letter code for an airport.
     Example: EHAM (Amsterdam)
+    """
+    System.halt(0)
+  end
+
+  def process(:wrong) do
+    IO.puts """
+    Please use a four letter ICAO code.
     """
     System.halt(0)
   end
