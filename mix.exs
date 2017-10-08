@@ -4,6 +4,7 @@ defmodule Metar.Mixfile do
   def project do
     [
       app: :metar,
+      escript: escript_config(),
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
@@ -14,7 +15,7 @@ defmodule Metar.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :httpoison]
     ]
   end
 
@@ -23,6 +24,12 @@ defmodule Metar.Mixfile do
     [
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:sweet_xml, "~> 0.6.5"},
+      {:httpoison, "~> 0.13"}
     ]
+  end
+
+  defp escript_config do
+    [ main_module: Metar.CLI ]
   end
 end
